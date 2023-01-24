@@ -1,0 +1,215 @@
+{
+  "recipe_inventory_screen_content":{ "ignored": true },
+
+  "inventory_screen_base": {
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_inventory_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_up",
+        "to_button_id": "button.menu_up",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_down",
+        "to_button_id": "button.menu_down",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_left",
+        "to_button_id": "button.menu_left",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_right",
+        "to_button_id": "button.menu_right",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.cursor_drop_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_secondary_select",
+        "to_button_id": "button.cursor_drop_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.cursor_drop_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_select",
+        "to_button_id": "button.clear_hotbar_or_drop",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "button.cursor_drop_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_clear",
+        "to_button_id": "button.menu_clear",
+        "mapping_type": "focused"
+      },
+      {
+        "from_button_id": "button.menu_tab_left",
+        "to_button_id": "button.menu_tab_left",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_tab_right",
+        "to_button_id": "button.menu_tab_right",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.controller_secondary_select_left",
+        "to_button_id": "button.shift_pane_focus",
+        "mapping_type": "global"
+      }
+    ]
+  },
+
+  "crafting_screen": {
+    "$screen_content": "crafting_dx.center_screen",
+    "$screen_center_content": "crafting_dx.no_safezone_center_screen",
+    "$screen_bg_content": "crafting_dx.full_screen",
+    "controls": [
+      {
+        "variables_button_mappings_and_controls": {
+          "type": "input_panel",
+          "hover_enabled": false,
+          "prevent_touch_input": false,
+          "ttsSectionContainer": true,
+          "bindings": [
+            {
+              "binding_name": "#crafting_label_text"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "((#crafting_label_text = container.crafting) or (#crafting_label_text = 'custom_craft2'))",
+              "target_property_name": "#visible" 
+            }
+          ],
+          "button_mappings": [
+            {
+              "from_button_id": "button.menu_up",
+              "to_button_id": "button.menu_up",
+              "mapping_type": "global",
+              "scope": "view"
+            },
+            {
+              "from_button_id": "button.menu_down",
+              "to_button_id": "button.menu_down",
+              "mapping_type": "global",
+              "scope": "view"
+            },
+            {
+              "from_button_id": "button.menu_left",
+              "to_button_id": "button.menu_left",
+              "mapping_type": "global",
+              "scope": "view"
+            },
+            {
+              "from_button_id": "button.menu_right",
+              "to_button_id": "button.menu_right",
+              "mapping_type": "global",
+              "scope": "view"
+            }
+          ],
+          "controls": [
+            {
+              "bg_no_safezone_screen_panel@$screen_bg_content": {
+                "anims": "$background_animations",
+                "animation_reset_name": "screen_animation_reset",
+                "propagate_alpha": true,
+                "disable_anim_fast_forward": true,
+                "layer": 2
+              }
+            },
+            {
+              "safezone_screen_matrix@common.safezone_outer_matrix": {
+                "anims": "$screen_animations",
+                "animation_reset_name": "screen_animation_reset",
+                "propagate_alpha": true,
+                "disable_anim_fast_forward": true,
+                "layer": "$safezone_screen_matrix_layer"
+              }
+            },
+            {
+              "screen_background@common_dialogs.full_screen_background": {
+                "anims": "$screen_animations",
+                "animation_reset_name": "screen_animation_reset",
+                "propagate_alpha": true,
+                "disable_anim_fast_forward": true,
+                "layer": -1
+              }
+            },
+            {
+              "no_safezone_screen_content@$screen_center_content": {
+                "anims": "$screen_animations",
+                "animation_reset_name": "screen_animation_reset",
+                "propagate_alpha": true,
+                "disable_anim_fast_forward": true,
+                "layer": 3
+              }
+            },
+            {
+              "popup_dialog_bg": {
+                "type": "panel",
+                "anims": "$background_animations",
+                "animation_reset_name": "screen_animation_reset",
+                "propagate_alpha": true,
+                "disable_anim_fast_forward": true,
+                "layer": 2,
+                "controls": [
+                  {
+                    "popup_dialog_factory": {
+                      "type": "factory",
+                      "$is_popup_dialog_in_game|default": true,
+                      "control_ids": "$popup_dialog_control_ids",
+                      "$popup_dialog_control_ids|default": {
+                        "modal_dialog_popup": "@common_dialogs_dx.modal_dialog_popup_bg"
+                      },
+                      "variables": [
+                        {
+                          "requires": "$is_popup_dialog_in_game",
+                          "$popup_dialog_control_ids": {
+                            "modal_dialog_popup": "@common_dialogs_dx.modal_dialog_popup_bg_in_game"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "inventory_screen": {
+    "$screen_content": "inventory_dx.center_screen",
+    "$screen_center_content": "inventory_dx.no_safezone_center_screen",
+    "$screen_bg_content": "inventory_dx.full_screen"
+  }
+}
